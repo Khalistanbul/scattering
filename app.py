@@ -1,7 +1,6 @@
 from flask import Flask, send_from_directory, request, jsonify
 import numpy as np
 import timeit
-import time
 import matplotlib.pyplot as plt
 import threading
 
@@ -59,11 +58,11 @@ def run_calcul_server():
                 complex_matrix = real_part + 1j * imag_part
 
 
-                #start_time = timeit.default_timer()
-                start_time = time.time()
+                start_time = timeit.default_timer()
+
                 inverse = np.linalg.inv(complex_matrix)
-                #end_time = timeit.default_timer()
-                end_time = time.time()
+                end_time = timeit.default_timer()
+        
                 temps.append(end_time - start_time)
 
             taille.append(size)
