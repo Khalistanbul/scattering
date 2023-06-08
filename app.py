@@ -53,7 +53,7 @@ def run_calcul_server():
 
         for size in range(size_min, size_max, step_size):
             temps=[]
-            for i in range(20):
+            for i in range(10):
                 real_part = np.random.rand(size, size)
                 imag_part = np.random.rand(size, size)
                 complex_matrix = real_part + 1j * imag_part
