@@ -23,7 +23,7 @@ def serve_media(path):
     return send_from_directory('static/static/media', path)
 
 def run_flask_app():
-    app.run(host='0.0.0.0', port=50)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 50)))
 
 def run_calcul_server():
     # Code pour exécuter votre serveur de calcul
@@ -74,7 +74,7 @@ def run_calcul_server():
 
         return jsonify(result)
 
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 if __name__ == '__main__':
     # Créez les threads pour les deux serveurs
