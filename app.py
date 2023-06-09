@@ -5,23 +5,23 @@ import matplotlib.pyplot as plt
 import threading
 import os
 
-app = Flask(__name__, static_folder='build')
+app = Flask(__name__, static_folder='static')
 
 @app.route('/')
 def index():
-    return send_from_directory('build', 'index.html')
+    return send_from_directory('static', 'index.html')
 
-@app.route('/build/js/<path:path>')
+@app.route('/static/js/<path:path>')
 def serve_js(path):
-    return send_from_directory('build/static/js', path)
+    return send_from_directory('static/static/js', path)
 
-@app.route('/build/css/<path:path>')
+@app.route('/static/css/<path:path>')
 def serve_css(path):
-    return send_from_directory('build/static/css', path)
+    return send_from_directory('static/static/css', path)
 
-@app.route('/build/media/<path:path>')
+@app.route('/static/media/<path:path>')
 def serve_media(path):
-    return send_from_directory('build/static/media', path)
+    return send_from_directory('static/static/media', path)
 
 def run_flask_app():
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 50)))
